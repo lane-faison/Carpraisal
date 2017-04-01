@@ -21,7 +21,7 @@ router.get('/login',
 
 router.get('/logout', function(req, res){
   req.logout()
-  res.redirect('/')
+  res.redirect('http://localhost:3000/home.html')
 })
 
 router.get('/callback',
@@ -29,7 +29,7 @@ router.get('/callback',
   function(req, res) {
     console.log(req.user._json.email)
     const userEmail = req.user._json.email
-    res.redirect('http://localhost:3000/user.html')
+    res.redirect('http://localhost:3000/user.html?email=' + userEmail)
 })
 
 
