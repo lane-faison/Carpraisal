@@ -27,10 +27,9 @@ router.get('/logout', function(req, res){
 router.get('/callback',
   passport.authenticate('auth0', { failureRedirect: 'http://www.google.com' }),
   function(req, res) {
-    console.log(req.user._json.email)
+    console.log(req.user._json)
     const userEmail = req.user._json.email
     res.redirect('http://localhost:3000/user.html?email=' + userEmail)
 })
-
 
 module.exports = router
